@@ -1,6 +1,6 @@
 # ==============================================================
 # requirements.txt
-# HPE Private Cloud AI Workshop — Lab 1A + Lab 2A
+# HPE Private Cloud AI Workshop — Lab 1A + Lab 2A + Lab 3A
 # Last updated : 2026-03-13
 # Python       : 3.11.x
 # ==============================================================
@@ -83,3 +83,18 @@ python-dotenv>=1.0.0,<2.0.0
 pydantic>=2.7.0,<3.0.0
 typing-extensions>=4.12.0
 python-docx
+
+# --------------------------------------------------------------
+# 10. Clustering & Dimensionality Reduction (Lab 3A)
+#     scikit-learn >= 1.6.0 is required by umap-learn >= 0.5.6;
+#     earlier sklearn versions lack the ensure_all_finite kwarg
+#     in check_array() and will raise a TypeError at fit_transform.
+#     umap-learn >= 0.5.6 is pinned to match that sklearn API.
+#     matplotlib is required for the UMAP cluster scatter plot.
+#     numpy is pinned to the 1.x series for broad compatibility
+#     with the scipy/sklearn/umap build chain on Python 3.11.
+# --------------------------------------------------------------
+scikit-learn>=1.6.0,<2.0.0
+umap-learn>=0.5.6,<0.6.0
+matplotlib>=3.9.0,<4.0.0
+numpy>=1.26.0,<2.0.0
