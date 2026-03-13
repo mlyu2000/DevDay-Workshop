@@ -1,0 +1,85 @@
+# ==============================================================
+# requirements.txt
+# HPE Private Cloud AI Workshop — Lab 1A + Lab 2A
+# Last updated : 2026-03-13
+# Python       : 3.11.x
+# ==============================================================
+
+# --------------------------------------------------------------
+# 1. LangChain Core Stack
+# --------------------------------------------------------------
+langchain>=0.3.0,<0.4.0
+langchain-core>=0.3.0,<0.4.0
+langchain-openai>=0.2.0,<0.3.0
+
+# --------------------------------------------------------------
+# 2. LangChain Community & Ecosystem (Lab 2A)
+#    PyPDFLoader, NomicEmbeddings live in langchain-community
+#    langchain-qdrant provides the QdrantVectorStore wrapper
+#    langchain-text-splitters provides RecursiveCharacterTextSplitter
+# --------------------------------------------------------------
+langchain-community>=0.3.0,<0.4.0
+langchain-qdrant>=0.2.0,<0.3.0
+langchain-text-splitters>=0.3.0,<0.4.0
+
+# --------------------------------------------------------------
+# 3. OpenAI-Compatible Client
+#    (used by ChatOpenAI to talk to the HPE vLLM endpoint)
+# --------------------------------------------------------------
+openai>=1.40.0,<2.0.0
+
+# --------------------------------------------------------------
+# 4. Vector Store & Embeddings (Lab 2A)
+#    qdrant-client : direct Qdrant connection (QdrantClient)
+#    pypdf         : underlying PDF parser required by PyPDFLoader
+#    nomic         : required backend for NomicEmbeddings
+#    docx2txt      : required by Docx2txtLoader for .docx support
+#    unstructured  : fallback parser for mixed/complex document types
+# --------------------------------------------------------------
+qdrant-client>=1.9.0,<2.0.0
+pypdf>=4.2.0,<5.0.0
+nomic>=3.1.0,<4.0.0
+docx2txt>=0.8,<1.0
+
+# --------------------------------------------------------------
+# 5. Langfuse Observability SDK
+#    Must be v3+ for get_client() and langfuse.langchain import
+# --------------------------------------------------------------
+langfuse>=3.0.0,<4.0.0
+
+# --------------------------------------------------------------
+# 6. OpenTelemetry — MUST be pinned as a consistent set
+#    Langfuse v3 requires opentelemetry-sdk >= 1.25.0
+#    The conda base image ships an older mismatched set —
+#    these pins override it to a coherent version group.
+# --------------------------------------------------------------
+opentelemetry-api>=1.25.0,<2.0.0
+opentelemetry-sdk>=1.25.0,<2.0.0
+opentelemetry-exporter-otlp-proto-http>=1.25.0,<2.0.0
+opentelemetry-exporter-otlp-proto-grpc>=1.25.0,<2.0.0
+opentelemetry-exporter-otlp-proto-common>=1.25.0,<2.0.0
+opentelemetry-proto>=1.25.0,<2.0.0
+opentelemetry-semantic-conventions>=0.46b0
+
+# --------------------------------------------------------------
+# 7. Async & Runtime Utilities
+# --------------------------------------------------------------
+anyio>=4.4.0,<5.0.0
+httpx>=0.27.0,<0.28.0
+tenacity>=8.5.0,<9.0.0
+requests>=2.32.0,<3.0.0      # used by otlp http exporter
+
+# --------------------------------------------------------------
+# 8. Jupyter Environment
+# --------------------------------------------------------------
+jupyterlab>=4.2.0,<5.0.0
+ipykernel>=6.29.0,<7.0.0
+ipywidgets>=8.1.0,<9.0.0
+
+# --------------------------------------------------------------
+# 9. General Utilities
+# --------------------------------------------------------------
+python-dotenv>=1.0.0,<2.0.0
+pydantic>=2.7.0,<3.0.0
+typing-extensions>=4.12.0
+python-docx
